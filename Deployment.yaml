@@ -1,0 +1,29 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apprepo
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aravind
+  template:
+    metadata:
+      labels:
+        app: aravind
+    spec:
+      containers:
+      - name: apprepo
+        image: aravind159/aravind:a1
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 9001
+        resources:
+          requests:
+            cpu: "100m"  # 100 millicores (0.1 core)
+            memory: "64Mi"  # 64 MiB of memory
+          limits:
+            cpu: "500m"  # 500 millicores (0.5 core)
+            memory: "256Mi"  # 256 MiB of memory
