@@ -1,0 +1,5 @@
+spring:
+  application: name=demorepo
+server:
+  port:8080
+
